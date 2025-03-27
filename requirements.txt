@@ -2,3 +2,4 @@ torch
 transformers
 peft
 streamlit
+sentencepiece
