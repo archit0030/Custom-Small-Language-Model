@@ -1,3 +1,9 @@
+import subprocess
+
+# Ensure required libraries are installed
+packages = ["torch", "transformers", "peft", "streamlit"]
+for package in packages:
+    subprocess.run(["pip", "install", package])
 import torch
 from transformers import BartTokenizer, T5Tokenizer
 from peft import PeftModel
