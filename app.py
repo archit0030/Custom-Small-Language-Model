@@ -57,8 +57,7 @@ if st.button("Predict Actions"):
         try:
             actions = predict_actions(instruction)
             st.subheader("Predicted Actions:")
-            for i, action in enumerate(actions, 1):
-                st.write(f"{i}. {action}")
+            st.write(", ".join(actions))
         except Exception as e:
             st.error(f"Error: {str(e)}")
     else:
