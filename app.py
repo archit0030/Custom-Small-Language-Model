@@ -11,9 +11,9 @@ from transformers import BartForConditionalGeneration, T5ForConditionalGeneratio
 import streamlit as st
 
 # 1. Load model and tokenizer
-model_path = './finetuned_robotic_t5'
+model_path = 'archit0030/Custom-Small-Language-Model/finetuned_robotic_t5'
 tokenizer = T5Tokenizer.from_pretrained(model_path)
-base_model = T5ForConditionalGeneration.from_pretrained('./finetuned_robotic_t5')
+base_model = T5ForConditionalGeneration.from_pretrained('archit0030/Custom-Small-Language-Model/finetuned_robotic_t5')
 model = PeftModel.from_pretrained(base_model, model_path)
 model = model.merge_and_unload()  # Merge LoRA adapters
 
