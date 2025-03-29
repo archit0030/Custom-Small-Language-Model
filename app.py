@@ -43,7 +43,11 @@ def predict_actions(instruction):
     
     decoded = tokenizer.decode(outputs[0], skip_special_tokens=True)
     decoded = decoded.lower()  # Force lowercase
-    return [action.strip() for action in decoded.split() if action.strip()]
+    decoded = decoded.replace(",,", ",")  # Fix duplicate commas
+    
+    # Use regex to extract complete subactions (e.g., reach(box))
+    actions = re.findall(r'\w+\([^)]*\)', decoded)
+    return actions
 
 # Streamlit interface
 st.title("Robotic Action Predictor")
